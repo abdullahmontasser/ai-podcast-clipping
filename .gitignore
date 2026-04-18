@@ -1,0 +1,12 @@
+# OS Junk
+.DS_Store
+Thumbs.db
+
+# Root Node modules
+node_modules/
+
+# Videos (Make sure to ignore them at the root level too)
+*.mp4
+*.mov
+*.avi
+*.mkv
