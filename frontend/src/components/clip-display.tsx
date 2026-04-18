@@ -40,29 +40,29 @@ function ClipCard({ clip }: { clip: Clip }) {
   };
 
   return (
-    <div className="flex max-w-52 flex-col gap-2">
-      <div className="bg-muted">
+    <div className="flex w-full flex-col gap-3">
+      <div className="bg-card/40 backdrop-blur-sm group relative flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-2xl border border-white/5 shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.15)]">
         {isLoadingUrl ? (
-          <div className="flex h-full w-full items-center justify-center">
-            <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
+          <div className="rounded-full bg-primary/10 p-4 ring-1 ring-primary/20 animate-pulse">
+            <Loader2 className="text-primary h-8 w-8 animate-spin" />
           </div>
         ) : playUrl ? (
           <video
             src={playUrl}
             controls
             preload="metadata"
-            className="h-full w-full rounded-md object-cover"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center">
+          <div className="rounded-full bg-secondary/50 p-4 ring-1 ring-white/10">
             <Play className="text-muted-foreground h-10 w-10 opacity-50" />
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-2">
-        <Button onClick={handleDownload} variant="outline" size="sm">
-          <Download className="mr-1.5 h-4 w-4" />
-          Download
+      <div className="flex flex-col">
+        <Button onClick={handleDownload} variant="outline" size="sm" className="w-full">
+          <Download className="mr-2 h-4 w-4" />
+          Download Clip
         </Button>
       </div>
     </div>
@@ -72,13 +72,19 @@ function ClipCard({ clip }: { clip: Clip }) {
 export function ClipDisplay({ clips }: { clips: Clip[] }) {
   if (clips.length === 0) {
     return (
-      <p className="text-muted-foreground p-4 text-center">
-        No clips generated yet.
-      </p>
+      <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="rounded-full bg-primary/10 p-5 ring-1 ring-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+          <Play className="text-primary h-10 w-10" />
+        </div>
+        <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">No clips yet</h3>
+        <p className="text-muted-foreground mt-2 max-w-sm">
+          Upload your first podcast to see the magic happen. Your AI-generated clips will appear here ready for TikTok or Shorts.
+        </p>
+      </div>
     );
   }
   return (
-    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:gap-8">
       {clips.map((clip) => (
         <ClipCard key={clip.id} clip={clip} />
       ))}

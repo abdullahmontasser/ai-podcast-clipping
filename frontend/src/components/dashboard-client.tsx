@@ -53,14 +53,16 @@ function DropzoneComponent({
   return (
     <div
       {...getRootProps()}
-      className={`cursor-pointer rounded-lg border-2 border-dashed p-10 transition-colors ${
-        isDragActive ? "border-primary bg-primary/5" : "border-muted-foreground/25"
-      } ${disabled ? "opacity-50" : ""}`}
+      className={`glass-card group cursor-pointer rounded-2xl border-2 border-dashed p-12 transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 ${
+        isDragActive ? "border-primary bg-primary/10 shadow-[inset_0_0_30px_rgba(124,58,237,0.1)] scale-[1.01]" : "border-white/10 dark:border-white/10"
+      } ${disabled ? "opacity-50 pointer-events-none" : ""}`}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <UploadCloud className="text-muted-foreground h-12 w-12" />
-        <p className="font-medium">Drag and drop your file</p>
+      <div className="flex flex-col items-center justify-center space-y-5 text-center">
+        <div className="rounded-full bg-primary/10 p-4 ring-1 ring-primary/20 group-hover:scale-110 group-hover:ring-primary/40 transition-all duration-300">
+          <UploadCloud className="text-primary h-10 w-10" />
+        </div>
+        <p className="font-sans text-xl font-bold tracking-tight text-foreground">Drag and drop your file</p>
         <p className="text-muted-foreground text-sm">
           or click to browse (MP4 up to 500MB)
         </p>
@@ -146,14 +148,14 @@ export function DashboardClient({
   };
 
   return (
-    <div className="mx-auto flex max-w-5xl flex-col space-y-6 px-4 py-8">
-      <div className="flex items-center justify-between">
+    <div className="mx-auto flex max-w-5xl flex-col space-y-10 px-4 py-12 md:py-16">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Podcast Clipper
+          <h1 className="font-sans text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Dashboard
           </h1>
-          <p className="text-muted-foreground">
-            Upload your podcast and get AI-generated clips instantly
+          <p className="mt-2 text-muted-foreground font-sans text-lg">
+            Upload your podcast and get AI-generated clips instantly.
           </p>
         </div>
         <Link href="/dashboard/billing">

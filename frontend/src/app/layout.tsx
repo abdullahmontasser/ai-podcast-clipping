@@ -18,8 +18,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`dark ${geist.variable} antialiased`}>
+      <body className="font-sans min-h-screen bg-background text-foreground transition-colors duration-300">
+        {children}
+      </body>
     </html>
   );
 }

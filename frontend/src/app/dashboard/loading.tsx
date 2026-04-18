@@ -2,9 +2,13 @@ import { Loader2 } from "lucide-react";
 
 export default function Loading() {
   return (
-    <div className="flex flex-col items-center justify-center gap-5 p-12">
-      <Loader2 className="text-muted-foreground h-10 w-10 animate-spin" />
-      <span className="ml-3 text-lg">Loading dashboard...</span>
+    <div className="flex h-[50vh] flex-col items-center justify-center gap-6 p-12">
+      <div className="rounded-full bg-primary/10 p-5 ring-1 ring-primary/20 animate-pulse">
+        <Loader2 className="text-primary h-12 w-12 animate-spin" />
+      </div>
+      <span className="font-sans text-xl font-bold tracking-tight text-foreground/80">
+        Loading dashboard...
+      </span>
     </div>
   );
 }

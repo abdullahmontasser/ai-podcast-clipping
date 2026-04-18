@@ -88,7 +88,7 @@ export function SignupForm({
                   {...register("email")}
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-500">{errors.email.message}</p>
+                  <p className="text-sm font-medium text-destructive">{errors.email.message}</p>
                 )}
               </div>
               <div className="grid gap-2">
@@ -102,14 +102,14 @@ export function SignupForm({
                   {...register("password")}
                 />
                 {errors.password && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm font-medium text-destructive">
                     {errors.password.message}
                   </p>
                 )}
               </div>
 
               {error && (
-                <p className="rounded-md bg-red-50 p-3 text-sm text-red-500">
+                <p className="rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive-foreground">
                   {error}
                 </p>
               )}
@@ -118,9 +118,9 @@ export function SignupForm({
                 {isSubmitting ? "Signing up..." : "Sign up"}
               </Button>
             </div>
-            <div className="mt-4 text-center text-sm">
+            <div className="mt-8 text-center text-sm text-muted-foreground">
               Already have an account?{" "}
-              <Link href="/login" className="underline underline-offset-4">
+              <Link href="/login" className="text-primary hover:text-primary/80 font-medium transition-colors underline-offset-4 hover:underline">
                 Sign in
               </Link>
             </div>

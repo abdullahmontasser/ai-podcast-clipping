@@ -106,7 +106,7 @@ export function LoginForm({
               </div>
 
               {error && (
-                <p className="rounded-md bg-red-50 p-3 text-sm text-red-500">
+                <p className="rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive-foreground">
                   {error}
                 </p>
               )}
@@ -115,9 +115,9 @@ export function LoginForm({
                 {isSubmitting ? "Logging in..." : "Log in"}
               </Button>
             </div>
-            <div className="mt-4 text-center text-sm">
+            <div className="mt-8 text-center text-sm text-muted-foreground">
               Don&apos;t have an account?{" "}
-              <Link href="/signup" className="underline underline-offset-4">
+              <Link href="/signup" className="text-primary hover:text-primary/80 font-medium transition-colors underline-offset-4 hover:underline">
                 Sign up
               </Link>
             </div>
