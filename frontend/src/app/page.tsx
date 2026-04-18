@@ -13,7 +13,7 @@ export default function HomePage() {
     if (heroState !== "idle") return;
     setHeroState("processing");
     setProgress(0);
-    
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -32,7 +32,7 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground antialiased flex flex-col font-sans overflow-x-hidden">
-      
+
       {/* Background glow effects */}
       <div className="pointer-events-none absolute inset-0 flex items-start justify-center overflow-hidden">
         <div className="absolute -top-10 left-[20%] h-[40rem] w-[40rem] rounded-full bg-primary/20 blur-[120px] animate-blob" />
@@ -63,23 +63,23 @@ export default function HomePage() {
         {/* Interactive Split Hero Section */}
         <section className="relative z-10 container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
-            
+
             {/* Hero Left: Copy & CTAs */}
             <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start group">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium backdrop-blur-md mb-8 animate-float">
                 <Sparkles className="h-4 w-4 text-primary" />
                 <span className="text-foreground/80">AI-Powered Content Repurposing 2.0</span>
               </div>
-              
+
               <h1 className="max-w-3xl text-5xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1]">
                 Turn podcasts into <br />
                 <span className="glow-text">viral gold.</span>
               </h1>
-              
+
               <p className="mt-8 max-w-xl text-lg sm:text-xl text-muted-foreground leading-relaxed">
                 Upload your long-form audio or video. Our AI instantly extracts the most engaging moments, adds trending captions, and formats them for TikTok, Reels, and Shorts.
               </p>
-              
+
               <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
                 <Button size="lg" asChild className="rounded-full h-14 px-8 text-base shadow-[0_0_40px_rgba(124,58,237,0.3)] hover:shadow-[0_0_60px_rgba(124,58,237,0.5)] transition-all">
                   <Link href="/signup">
@@ -95,7 +95,7 @@ export default function HomePage() {
             {/* Hero Right: Interactive Mockup */}
             <div className="w-full lg:w-[500px] xl:w-[600px] shrink-0 relative">
               <div className="glass-card rounded-[2rem] p-4 lg:p-6 shadow-2xl border-white/10 overflow-hidden relative group/mockup">
-                
+
                 {/* Decorative Browser Chrome */}
                 <div className="flex items-center gap-2 mb-4 px-2">
                   <div className="h-3 w-3 rounded-full bg-red-500/80" />
@@ -105,12 +105,12 @@ export default function HomePage() {
                 </div>
 
                 {/* The Interactive Zone */}
-                <div 
+                <div
                   onClick={startInteractiveDemo}
                   className={`relative aspect-[4/3] rounded-2xl border border-white/10 bg-black/40 overflow-hidden transition-all duration-500 cursor-pointer flex flex-col items-center justify-center
                     ${heroState === 'idle' ? 'hover:border-primary/50 hover:bg-black/20' : ''}`}
                 >
-                  
+
                   {heroState === "idle" && (
                      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center animate-in fade-in zoom-in duration-500">
                        <div className="bg-primary/20 p-5 rounded-full ring-1 ring-primary/30 mb-6 relative group-hover/mockup:scale-110 transition-transform">
@@ -162,13 +162,13 @@ export default function HomePage() {
                       </div>
                     </div>
                   )}
-                  
+
                 </div>
               </div>
             </div>
-            
+
           </div>
-          
+
       {/* Logos & Marquee below Hero */}
           <div className="mt-28 overflow-hidden w-full relative pt-10 border-t border-white/5">
             <div className="text-center mb-10"><p className="text-sm font-semibold tracking-widest uppercase text-muted-foreground">Export directly to</p></div>
@@ -207,7 +207,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Everything you need to <span className="text-primary">scale.</span></h2>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="glass-card group rounded-3xl p-8 flex flex-col gap-4 border border-white/10 hover:border-primary/30 transition-all duration-500">
                 <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center ring-1 ring-primary/30 group-hover:animate-float">
@@ -252,7 +252,7 @@ export default function HomePage() {
                     <p className="text-muted-foreground mt-2">Drop your MP4 file or simply paste a YouTube link. We handle files up to 5GB in pristine quality.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex gap-4">
                   <div className="flex flex-col items-center">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold shadow-[0_0_15px_rgba(124,58,237,0.4)]">2</div>
@@ -275,7 +275,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="md:w-1/2 w-full">
               <div className="glass-card aspect-[4/5] w-full rounded-[2.5rem] border border-white/10 p-2 relative overflow-hidden flex items-center justify-center shadow-2xl bg-gradient-to-br from-card/80 to-background">
                 {/* Simulated Short-form Video UI */}
@@ -287,16 +287,16 @@ export default function HomePage() {
                       <Play className="h-3 w-3 text-white fill-white" />
                     </div>
                   </div>
-                  
+
                   {/* Video Background / Filter */}
                   <div className="flex-1 relative bg-gradient-to-br from-violet-900 via-indigo-950 to-black transition-transform duration-700 group-hover/video:scale-105 flex items-center justify-center">
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                    
+
                     <div className="absolute inset-0 bg-black/40 group-hover/video:bg-black/10 transition-colors duration-500" />
-                    
+
                     <Play className="h-20 w-20 text-white/30 group-hover/video:scale-125 group-hover/video:text-white/60 transition-all duration-500" />
-                    
+
                     {/* Simulated Captions */}
                     <div className="absolute bottom-36 inset-x-4 flex justify-center">
                       <div className="bg-primary/90 text-white font-black text-2xl uppercase tracking-tighter px-5 py-2 skew-y-[-1deg] shadow-[0_10px_30px_rgba(124,58,237,0.5)] group-hover/video:scale-[1.15] group-hover/video:skew-y-[2deg] transition-transform duration-500 backdrop-blur-md border border-white/20 rounded-sm">
@@ -307,7 +307,7 @@ export default function HomePage() {
 
                   {/* Realistic Short Form Overlay UI */}
                   <div className="absolute inset-x-0 bottom-0 top-32 pointer-events-none z-10 p-4 bg-gradient-to-t from-black/80 via-transparent to-transparent">
-                    
+
                     {/* Right Action Bar */}
                     <div className="absolute right-3.5 bottom-6 flex flex-col items-center gap-5">
                        {/* Profile */}
@@ -319,7 +319,7 @@ export default function HomePage() {
                          </div>
                          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 h-5 w-5 bg-red-500 rounded-full border-2 border-black flex items-center justify-center text-white font-bold text-[10px] scale-90">+</div>
                        </div>
-                       
+
                        {/* Likes */}
                        <div className="flex flex-col items-center gap-1 text-white">
                          <div className="h-[42px] w-[42px] bg-black/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10 group-hover/video:bg-rose-500/20 transition-colors">
@@ -327,7 +327,7 @@ export default function HomePage() {
                          </div>
                          <span className="text-[11px] font-bold font-mono tracking-tighter">142K</span>
                        </div>
-                       
+
                        {/* Comments */}
                        <div className="flex flex-col items-center gap-1 text-white">
                          <div className="h-[42px] w-[42px] bg-black/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10">
@@ -335,7 +335,7 @@ export default function HomePage() {
                          </div>
                          <span className="text-[11px] font-bold font-mono tracking-tighter">1,024</span>
                        </div>
-                       
+
                        {/* Bookmark */}
                        <div className="flex flex-col items-center gap-1 text-white">
                          <div className="h-[42px] w-[42px] bg-black/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10">
@@ -343,7 +343,7 @@ export default function HomePage() {
                          </div>
                          <span className="text-[11px] font-bold font-mono tracking-tighter">24K</span>
                        </div>
-                       
+
                        {/* Share */}
                        <div className="flex flex-col items-center gap-1 text-white">
                          <div className="h-[42px] w-[42px] bg-black/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10">
@@ -352,12 +352,12 @@ export default function HomePage() {
                          <span className="text-[11px] font-bold font-mono tracking-tighter">8.9K</span>
                        </div>
                     </div>
-                    
+
                     {/* Bottom Metadata */}
                     <div className="absolute bottom-6 left-5 right-20 flex flex-col gap-2.5">
                       <h4 className="text-white font-bold text-[15px] tracking-tight">@podcast.clipper</h4>
                       <p className="text-white/90 text-[13px] leading-snug drop-shadow-md pr-2">When you finally realize how much time automation saves you entirely! 🤯💻 <span className="font-semibold">#podcast #viral #creator</span></p>
-                      
+
                       {/* Music Bar */}
                       <div className="flex items-center gap-2 mt-1.5 w-fit">
                         <Music className="h-[14px] w-[14px] text-white animate-pulse" />
@@ -369,7 +369,7 @@ export default function HomePage() {
                         </div>
                       </div>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
