@@ -137,7 +137,7 @@ export function DashboardClient({
           "Your video has been scheduled for processing. Check the status below.",
         duration: 5000,
       });
-    } catch (error) {
+    } catch {
       toast.error("Upload failed", {
         description:
           "There was a problem uploading your video. Please try again.",

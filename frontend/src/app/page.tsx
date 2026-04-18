@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import { ArrowRight, Scissors, Sparkles, TrendingUp, Video, Play, CheckCircle2, Loader2, Youtube, Instagram, Twitter, Twitch, MousePointerClick, MessageCircle, Share2, Bookmark, Music } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function HomePage() {
   const [heroState, setHeroState] = useState<"idle" | "processing" | "done">("idle");
@@ -136,7 +136,7 @@ export default function HomePage() {
                       </div>
                       <div className="mt-8 grid grid-cols-3 gap-2 opacity-30">
                          {/* Fake waveform bars */}
-                         {[...Array(6)].map((_, i) => (
+                         {Array.from({ length: 6 }).map((_, i) => (
                            <div key={i} className="w-6 h-12 bg-white/20 rounded-md animate-pulse" style={{ animationDelay: `${i * 100}ms` }} />
                          ))}
                       </div>
