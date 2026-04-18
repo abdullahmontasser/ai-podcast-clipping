@@ -1,6 +1,6 @@
 "use client";
 
-import Dropzone, { type DropzoneState } from "shadcn-dropzone";
+import { useDropzone } from "react-dropzone";
 import type { Clip } from "@prisma/client";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -28,6 +28,49 @@ import {
 import { Badge } from "./ui/badge";
 import { useRouter } from "next/navigation";
 import { ClipDisplay } from "./clip-display";
+
+function DropzoneComponent({
+  onDrop,
+  accept,
+  maxSize,
+  disabled,
+  maxFiles,
+}: {
+  onDrop: (files: File[]) => void;
+  accept: Record<string, string[]>;
+  maxSize: number;
+  disabled: boolean;
+  maxFiles: number;
+}) {
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept,
+    maxSize,
+    disabled,
+    maxFiles,
+  });
+
+  return (
+    <div
+      {...getRootProps()}
+      className={`cursor-pointer rounded-lg border-2 border-dashed p-10 transition-colors ${
+        isDragActive ? "border-primary bg-primary/5" : "border-muted-foreground/25"
+      } ${disabled ? "opacity-50" : ""}`}
+    >
+      <input {...getInputProps()} />
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <UploadCloud className="text-muted-foreground h-12 w-12" />
+        <p className="font-medium">Drag and drop your file</p>
+        <p className="text-muted-foreground text-sm">
+          or click to browse (MP4 up to 500MB)
+        </p>
+        <Button variant="default" size="sm" disabled={disabled}>
+          Select File
+        </Button>
+      </div>
+    </div>
+  );
+}
 
 export function DashboardClient({
   uploadedFiles,
@@ -133,33 +176,13 @@ export function DashboardClient({
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Dropzone
+              <DropzoneComponent
                 onDrop={handleDrop}
                 accept={{ "video/mp4": [".mp4"] }}
                 maxSize={500 * 1024 * 1024}
                 disabled={uploading}
                 maxFiles={1}
-              >
-                {(dropzone: DropzoneState) => (
-                  <>
-                    <div className="flex flex-col items-center justify-center space-y-4 rounded-lg p-10 text-center">
-                      <UploadCloud className="text-muted-foreground h-12 w-12" />
-                      <p className="font-medium">Drag and drop your file</p>
-                      <p className="text-muted-foreground text-sm">
-                        or click to browse (MP4 up to 500MB)
-                      </p>
-                      <Button
-                        className="cursor-pointer"
-                        variant="default"
-                        size="sm"
-                        disabled={uploading}
-                      >
-                        Select File
-                      </Button>
-                    </div>
-                  </>
-                )}
-              </Dropzone>
+              />
 
               <div className="mt-2 flex items-start justify-between">
                 <div>
