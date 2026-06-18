@@ -25,6 +25,7 @@ export async function generateUploadUrl(fileInfo: {
       accessKeyId: env.AWS_ACCESS_KEY_ID,
       secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
     },
+    requestChecksumCalculation: "WHEN_REQUIRED",
   });
 
   const fileExtension = fileInfo.filename.split(".").pop() ?? "";
